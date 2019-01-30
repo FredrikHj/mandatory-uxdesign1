@@ -1,0 +1,68 @@
+<!doctype>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+     <title>MD Simple</title>
+    <link rel="stylesheet" type="text/css" href="mds.css">
+    <script src="mds.js"></script> <!-- Varför inte defer? -->
+  </head>
+  <body>
+    <header class="header">
+      <h1>UX - Lab</h1>
+      <h3>Disabled!</h3>
+    </header>
+    <main class="mainContent">
+      <div class="mds-text-field">
+        <div class="mds-text-field__container">
+          <label class="mds-text-field__label">Förnamn</label>
+          <input class="mds-text-field__input" type="text">
+        </div>
+        <br><br>
+        <div class="mds-text-field">
+          <div class="mds-text-field__container">
+            <label class="mds-text-field__label">Efternamn</label>
+            <input class="mds-text-field__input" type="text">
+          </div>
+        </div>
+      </div>
+      <section id="checkRadio">
+        <div class="mds-checkbox">
+          <h3>Bilar du vill se?</h3>
+          <div class="checkbox_container">
+            <div class="container__alt">
+              <p>Volvo</p><input type="checkbox" class="alt__checkbox">
+            </div>
+            <div class="container__alt">
+              <p>Saab</p><input type="checkbox" class="alt__checkbox">
+            </div>
+          </div>
+        </div>
+        <div class="mds-radio">
+          <h3>Radio - Alternativ</h3>
+          <div class="radio_container">
+            <div class="container__radioAlt">
+              <p>1</p><input type="radio" checked="checked" class="radioAlt__input" name="radio">
+            </div>
+            <div class="container__alt">
+              <p>2</p><input type="radio" checked="checked" class="radioAlt__input" name="radio">
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <div class="mds-switch">
+      <section class="mds-switch__label"></section>
+      <input type="checkbox"class="mds-switch__chhide">
+      <label class="mds-switch__slider"></label>
+    </div>
+    <script>
+      let getTextfield = document.querySelectorAll('.mds-text-field');
+      for (interactedTextfield of getTextfield) {
+        mds.textField(interactedTextfield);
+      }
+
+      let getSwitch = document.querySelector('.mds-switch');
+      mds.switch(getSwitch);
+    </script>
+  </body>
+</html>
