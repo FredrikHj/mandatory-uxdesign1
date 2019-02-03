@@ -6,38 +6,35 @@ window.mds = {
     let getTextLabel = element.querySelector('.mds-text-field__label');
 
     getInputText.addEventListener('focus', function () {
-      getTextLabel.setAttribute('class', 'mds-text-field__label mds-text-field__label--onClick');
-      getInputText.setAttribute('class', 'mds-text-field__input mds-text-field__input--typeText');
+      getTextLabel.setAttribute('class', 'mds-text-field__label mds-text-field__label--active');
+      getInputText.setAttribute('class', 'mds-text-field__input mds-text-field__input--active');
       element.setAttribute('style', 'border-Bottom: 2px solid purple');
     });
-    getInputText.addEventListener('blur', function () {
-      getTextLabel.setAttribute('class', 'mds-text-field__label');
-      getInputText.setAttribute('class', 'mds-text-field__input');
-      getInputText.value = '';
-      element.setAttribute('style', 'border-Bottom: 1px solid black');
-    });
-    // element.removeEventListener('click', function);
-    // element.removeEventListener('blur', function);
+        getInputText.addEventListener('blur', function () {
+          if (getInputText.value === '') {
+            getTextLabel.setAttribute('class', 'mds-text-field__label');
+            getInputText.setAttribute('class', 'mds-text-field__input');
+            element.setAttribute('style', 'border-Bottom: 1px solid black');
+          }
+        });
+
   },
   switch: function (element) {
-    let getSwitchLabel = element.querySelector('.mds-switch__label');
+    let getSwitchName = element.querySelector('.mds-switch__SwitchName');
+    let getSwitchState = element.querySelector('.mds-switch__SwitchState');
   let getMain = document.querySelector('.mainContent');
-    let getDisabledlabel = document.querySelector('.header h3');
 
-    getSwitchLabel.textContent = 'OFF';
+    getSwitchState.textContent = 'OFF';
     let switchStateOff = true;
     element.addEventListener('click', function () {
-      console.log('refdv');
       if (switchStateOff === true) {
-        getSwitchLabel.textContent = 'ON';
+        getSwitchState.textContent = 'ON';
         getMain.setAttribute('class', 'mainContent mainContent--disabled');
-        getDisabledlabel.setAttribute('style', 'display: block');
         switchStateOff = false;
       }
       else if (switchStateOff === false) {
-        getSwitchLabel.textContent = 'OFF';
+        getSwitchState.textContent = 'OFF';
         getMain.setAttribute('class', 'mainContent');
-        getDisabledlabel.setAttribute('style', 'display: none');
         switchStateOff = true;
       }
     });

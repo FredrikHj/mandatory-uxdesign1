@@ -3,19 +3,20 @@
   <head>
     <meta charset="utf-8">
      <title>MD Simple</title>
+     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="mds.css">
     <script src="mds.js"></script> <!-- Varför inte defer? -->
   </head>
   <body>
     <header class="header">
       <h1>UX - Lab</h1>
-      <h3>Disabled!</h3>
     </header>
     <main class="mainContent">
       <div class="mds-text-field">
         <div class="mds-text-field__container">
           <label class="mds-text-field__label">Förnamn</label>
-          <input class="mds-text-field__input" type="text">
+          <input class="mds-text-field__input" type="text" value="">
         </div>
         <br><br>
         <div class="mds-text-field">
@@ -25,35 +26,44 @@
           </div>
         </div>
       </div>
-      <section id="checkRadio">
+      <section id="checkRadio"> <!-- Ej med i BEM -->
+
         <div class="mds-checkbox">
           <h3>Bilar du vill se?</h3>
           <div class="checkbox_container">
-            <div class="container__alt">
-              <p>Volvo</p><input type="checkbox" class="alt__checkbox">
+            <div class="container__checkbox">
+              <p>Volvo</p><input type="checkbox" class="checkbox__checkboxInput" id="checkbox__checkboxInput">
+              <label for="checkbox__checkboxInput" class="checkbox__checkboxLabel"></label>
             </div>
-            <div class="container__alt">
-              <p>Saab</p><input type="checkbox" class="alt__checkbox">
+            <div class="container__checkbox">
+              <p>Saab</p><input type="checkbox" class="checkbox__checkboxInput" id="checkbox__checkboxInput">
+              <label for="checkbox__checkboxInput" class="checkbox__checkboxLabel"></label>
             </div>
           </div>
         </div>
+
         <div class="mds-radio">
           <h3>Radio - Alternativ</h3>
           <div class="radio_container">
-            <div class="container__radioAlt">
-              <p>1</p><input type="radio" checked="checked" class="radioAlt__input" name="radio">
+            <div class="container__radio">
+              <p>1</p><input type="radio" checked="checked" class="radio__input" id="radio__input" name="radioButton">
+              <label class="radio__checkDot" for="radio__input"></label>
             </div>
-            <div class="container__alt">
-              <p>2</p><input type="radio" checked="checked" class="radioAlt__input" name="radio">
+            <div class="container__radio">
+              <p>2</p><input type="radio" class="radio__input" name="radioButton">
+              <span class="radio__checkDot"></span>
             </div>
           </div>
         </div>
+
       </section>
+
     </main>
     <div class="mds-switch">
-      <section class="mds-switch__label"></section>
+      <p class="mds-switch__SwitchName">Disabled</p>
       <input type="checkbox"class="mds-switch__chhide">
       <label class="mds-switch__slider"></label>
+      <p class="mds-switch__SwitchState"></p>
     </div>
     <script>
       let getTextfield = document.querySelectorAll('.mds-text-field');
